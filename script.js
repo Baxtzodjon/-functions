@@ -138,8 +138,8 @@
 // {} => callback функций
 
 
-// чем отличается let от перемменный var
-// var можно несколько раз создать а let нельзя var можно использовать где угодно, а let нельзя
+// чем отличается let от переменный var
+// var можно несколько раз создать а let нельзя , var можно использовать где угодно, а let нельзя
 
 
 
@@ -152,7 +152,7 @@
 // // }
 
 // // for(let item of boys) {
-// //     console.warn('Hello ' + item); //  console.warn console выйдет знак опасно
+// //     console.warn('Hello ' + item); //  console.warn в console выйдет знак опасно
 // // }
 
 
@@ -173,7 +173,7 @@
 
 // DRY
 // don't repeat yourself 
-// прогаммисти не любит повторить код
+// программисти не любит повторить код
 
 
 
@@ -208,12 +208,140 @@
 
 // написать функцию которая делает пропорции (total, broken)
 
-let total = +prompt('Сколько машин мы продали ?');
-let broken = +prompt('Сколько из них было возвращено ?');
+// let total = +prompt('Сколько машин мы продали ?');
+// let broken = +prompt('Сколько из них было возвращено ?');
 
-function proportion() {
-    let procent = (broken / total) * 100;
-    return procent;
+// function proportion() {
+//     let procent = (broken / total) * 100;
+//     return procent;
+// }
+
+// alert(`${proportion()} процент денег должен быть возвращен`);
+
+
+
+
+// lesson 26
+// functions
+
+// let total = 1000
+// let broken = 506
+
+// function calculate(a, b) {
+//     let res = b * 100 / a
+
+
+//     console.log(res);
+// }
+
+// calculate(total, broken)
+
+
+
+// function findLongestName(arr, nameTwo, nameThree) {
+//     console.log(arr, nameTwo, nameThree);
+// }
+
+// findLongestName()
+
+
+
+// function a(arr) {
+//     for (let item of arr) {
+//         console.log(item);
+//     }
+// }
+
+// a(['alex', 'jordan', 'michel']) // a по строкам тоже можно делать цикл
+
+
+
+// function findLongestName(...names) {   // () это называется выходные ворота
+//     // console.log(...names);
+//     let In = ""
+
+//     for (let name of names) {
+//         if (name.length > In.length) {
+//             In = name
+//         }
+//     }
+
+//     return In
+// }
+
+//  console.log(
+//     findLongestName('Alex', 'morgenshtern', 'Michael')
+// );
+
+
+
+// ... spread - распространить // открыть
+// ... rest - собрать // закрыть
+
+
+
+
+// exercise
+
+// function findminNumber(...minNumber) {   // () это называется выходные ворота
+//     console.log(...minNumber);
+//     let In = Math.min(87, 24, 15, 19, 54, 68, 78, 36, 74)
+
+//     for (let number of minNumber) {
+//         if (number < In) {
+//             In = number
+//         }
+//     }
+
+//     return In
+// }
+
+// console.log(
+//     findminNumber()
+// );
+
+
+
+
+// Дз
+
+// 1. Создать цикл который будет выводить цифры фибоначчи и должно остановиться на той цифре которую напишите в промпте 
+// фибоначчи 0 + 1 = 1 + 2 = 3 = 5 = 8 = 13 = 21 = 34 = 55 = 89
+
+
+let n = +prompt('Введите количество чисел Фибоначчи')
+
+let a = 1, b = 1;
+let i = 0;
+
+while (i < n) {
+    console.log(a);
+    let c = a + b;
+    a = b
+    b = c
+    i++;
 }
 
-alert(`${proportion()} процент денег должен быть возвращен`);
+
+
+// 2. В ручную создать функцию сорт с помощью циклов for of & while
+// метод buble sort
+// Сортировку пузырьком (Bubble Sort) также иногда называют сортировкой простыми обменами.
+// В общем-то единственным преимуществом этого алгоритма и является то, что он предельно прост в реализации. Сам по себе он не является эффективным, имеет сложность O(n²) и на практике не используется. Но знать его не помешает, ведь на его основе созданы другие более сложные и оптимизированные алгоритмы — сортировка перемешиванием (Cocktail sort), сортировка кучей (Heapsort), быстрая сортировка (Quicksort).
+
+
+let sort = [33, 245, 1, 15, 122, 5, 65, 90];
+bubbleSort(sort) 
+
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let k = 0; k < arr.length - 1 - i; k++) {
+            if (arr[k] > arr[k + 1]) {
+                let bst = arr[k];
+                arr[k] = arr[k + 1];
+                arr[k + 1] = bst; 
+            }
+        }
+    }
+    console.log(arr);
+}
